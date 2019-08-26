@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: REST Rental Store Web Service
   description:
-    A simple service that allows CRUD operations for a Rental Store.
+    A simple service that allows CRUD operations for a Rental Store Service.
   version: 0.0.1
 servers:
   - url: 'http://localhost:8080'
