@@ -66,9 +66,9 @@ public class CustomerDaoJdbcImpl implements CustomerDao{
     }
 
     @Override
-    public Customer getCustomer(int id) {
+    public Customer getCustomer(int customerId) {
         try{
-            return jdbcTemplate.queryForObject(SELECT_CUSTOMER_SQL, this::mapRowToCustomer, id);
+            return jdbcTemplate.queryForObject(SELECT_CUSTOMER_SQL, this::mapRowToCustomer, customerId);
         } catch (EmptyResultDataAccessException e){
             return null;
         }
@@ -90,8 +90,8 @@ public class CustomerDaoJdbcImpl implements CustomerDao{
     }
 
     @Override
-    public void deleteCustomer(int id) {
-        jdbcTemplate.update(DELETE_CUSTOMER_SQL, id);
+    public void deleteCustomer(int customerId) {
+        jdbcTemplate.update(DELETE_CUSTOMER_SQL, customerId);
 
     }
 }

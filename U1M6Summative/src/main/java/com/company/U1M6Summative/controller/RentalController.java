@@ -4,19 +4,21 @@ import com.company.U1M6Summative.dao.CustomerDao;
 import com.company.U1M6Summative.dao.InvoiceDao;
 import com.company.U1M6Summative.dao.InvoiceItemDao;
 import com.company.U1M6Summative.dao.ItemDao;
+import com.company.U1M6Summative.model.Customer;
+import com.company.U1M6Summative.model.Item;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RentalController {
-    @Autowired
-    CustomerDao customerDao;
-    @Autowired
-    InvoiceDao invoiceDao;
-    @Autowired
-    InvoiceItemDao invoiceItemDao;
-    @Autowired
-    ItemDao itemDao;
+//    @Autowired
+//    CustomerDao customerDao;
+//    @Autowired
+//    InvoiceDao invoiceDao;
+//    @Autowired
+//    InvoiceItemDao invoiceItemDao;
+//    @Autowired
+//    ItemDao itemDao;
 //
 //    @RequestMapping(value = "/customers", method = RequestMethod.POST)
 //    public Customer createCustomer(@RequestBody Customer customer) {
@@ -44,7 +46,7 @@ public class RentalController {
 //    public void updateItemById(@RequestBody Item item, @PathVariable(name="item_id") int item_id) {
 //        itemDao.updateItem(item);
 //    }
-
+//
 
 
 }
