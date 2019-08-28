@@ -57,6 +57,7 @@ public class Item {
     public int hashCode() {
         return Objects.hash(getItemId(), getName(), getDescription(), getDailyRate());
     }
+
 }
 
 
