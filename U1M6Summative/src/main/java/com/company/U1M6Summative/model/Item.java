@@ -1,13 +1,16 @@
 package com.company.U1M6Summative.model;
 
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Item {
 
     private int itemId;
+    @NotEmpty(message = "insert a name")
     private String name;
     private String description;
+    @NotEmpty(message = "insert a daily rate")
     private BigDecimal dailyRate;
 
     public int getItemId() {
