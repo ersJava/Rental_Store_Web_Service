@@ -18,6 +18,21 @@ public class InvoiceDaoJdbcImpl implements InvoiceDao {
     }
 
     @Override
+    public Invoice getInvoiceById(int invoice_id) {
+        return null;
+    }
+
+    @Override
+    public List<Invoice> getAllInvoices() {
+        return null;
+    }
+
+    @Override
+    public void updateInvoice(Invoice invoice) {
+
+    }
+
+    @Override
     public void deleteInvoice(int invoiceId) {
 
     }

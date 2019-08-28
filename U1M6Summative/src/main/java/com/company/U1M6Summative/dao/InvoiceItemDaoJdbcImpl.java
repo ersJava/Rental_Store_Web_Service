@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Repository
 public class InvoiceItemDaoJdbcImpl implements InvoiceItemDao {
@@ -16,7 +17,22 @@ public class InvoiceItemDaoJdbcImpl implements InvoiceItemDao {
     }
 
     @Override
+    public InvoiceItem getInvoiceItem(int invoiceItemId) {
+        return null;
+    }
+
+    @Override
+    public List<InvoiceItem> getAllInvoiceItems() {
+        return null;
+    }
+
+    @Override
     public void deleteInvoiceItem(int invoiceItemId) {
+
+    }
+
+    @Override
+    public void updateInvoiceItem(InvoiceItem invoiceItem) {
 
     }
 //    private JdbcTemplate jdbcTemplate;
