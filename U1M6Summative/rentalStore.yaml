@@ -263,7 +263,7 @@ paths:
           
 components:
   schemas:
-    Customers:
+    Customer:
       properties:
         customerId:
           type: integer
@@ -283,7 +283,7 @@ components:
         - email
         - company
         - phone
-    Items:
+    Item:
       properties:
         itemId:
           type: integer
@@ -297,7 +297,7 @@ components:
         - name
         - description
         - dailyRate
-    Invoices:
+    Invoice:
       properties:
         invoiceId:
           type: integer
