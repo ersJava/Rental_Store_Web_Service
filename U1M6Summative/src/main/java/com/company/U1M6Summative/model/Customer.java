@@ -1,14 +1,22 @@
 package com.company.U1M6Summative.model;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.Objects;
 
 public class Customer {
 
     private int customerId;
+    @NotEmpty(message = "enter a first name")
     private String firstName;
+    @NotEmpty(message = "enter a last name")
     private String lastName;
+    @NotEmpty
+    @Email(message = "use: email@email.com")
     private String email;
+    @NotEmpty(message = "enter a company")
     private String company;
+    @NotEmpty(message = "enter a phone number")
     private String phone;
 
     public int getCustomerId() {

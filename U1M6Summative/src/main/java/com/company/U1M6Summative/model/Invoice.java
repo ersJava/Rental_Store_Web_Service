@@ -1,5 +1,8 @@
 package com.company.U1M6Summative.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -7,9 +10,13 @@ import java.util.Objects;
 public class Invoice {
     private int invoiceId;
     private int customerId;
+    @NotEmpty(message = "Must not be empty")
     private LocalDate orderDate;
+    @NotEmpty(message = "Must not be empty")
     private LocalDate pickupDate;
+    @NotEmpty(message = "Must not be empty")
     private LocalDate returnDate;
+    @NotEmpty(message = "Must not be empty")
     private BigDecimal lateFee;
 
 
