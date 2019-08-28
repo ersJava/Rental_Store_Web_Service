@@ -18,7 +18,7 @@ public class ItemDaoJdbcImpl implements ItemDao {
             "insert into item (name, description, daily_rate) values (?, ?, ?)";
 
     private static final String SELECT_ITEM_SQL =
-            "select * from item where item_id";
+            "select * from item where item_id = ?";
 
     private static final String SELECT_ALL_ITEMS_SQL =
             "select * from item";
@@ -46,7 +46,7 @@ public class ItemDaoJdbcImpl implements ItemDao {
     }
 
     @Override
-    public Item getItem(int itemId){
+    public Item getItem(int itemId) {
         try {
             return jdbcTemplate.queryForObject(SELECT_ITEM_SQL, this::mapRowToItem, itemId);
         } catch (EmptyResultDataAccessException e) {
@@ -54,18 +54,22 @@ public class ItemDaoJdbcImpl implements ItemDao {
             return null;
         }
     }
+
     @Override
-    public List<Item> getAllItems(){
+    public List<Item> getAllItems() {
         return jdbcTemplate.query(SELECT_ALL_ITEMS_SQL, this::mapRowToItem);
     }
+
     @Override
-    public void updateItem(Item item){
-        jdbcTemplate.update(UPDATE_ITEM_SQL, item.getName(),item.getDescription(), item.getDailyRate());
+    public void updateItem(Item item) {
+        jdbcTemplate.update(UPDATE_ITEM_SQL, item.getName(), item.getDescription(), item.getDailyRate(), item.getItemId());
     }
+
     @Override
-    public void deleteItem(int itemId){
+    public void deleteItem(int itemId) {
         jdbcTemplate.update(DELETE_ITEM_SQL, itemId);
     }
+
     private Item mapRowToItem(ResultSet rs, int rowNum) throws SQLException {
         Item item = new Item();
         item.setItemId(rs.getInt("item_id"));
