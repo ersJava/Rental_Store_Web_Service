@@ -53,6 +53,7 @@ public class RentalController {
     @RequestMapping(value = "/customers/{customerId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateCustomer(@RequestBody Customer customer, @PathVariable(name="customerId") int customerId) {
+        //add a try catch for non existent customer id
         customerDao.updateCustomer(customer);
     }
 
@@ -84,12 +85,13 @@ public class RentalController {
     @RequestMapping(value = "/items/{itemId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     public void updateItemById(@RequestBody Item item, @PathVariable(name = "itemId") int itemId) {
+        //add a try catch in here for non existent itemId
         itemDao.updateItem(item);
     }
 
     @RequestMapping(value = "/invoices", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Invoice createInvoice(Invoice invoice) {
+    public Invoice createInvoice(@RequestBody Invoice invoice) {
         invoiceDao.addInvoice(invoice);
         return invoice;
     }
@@ -108,7 +110,7 @@ public class RentalController {
 
     @RequestMapping(value = "/invoiceItems", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public InvoiceItem createInvoiceItem(InvoiceItem invoiceItem) {
+    public InvoiceItem createInvoiceItem(@RequestBody InvoiceItem invoiceItem) {
         invoiceItemDao.addInvoiceItem(invoiceItem);
         return invoiceItem;
     }
