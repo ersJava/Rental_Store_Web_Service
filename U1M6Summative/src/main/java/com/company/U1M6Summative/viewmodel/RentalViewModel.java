@@ -1,18 +1,13 @@
 package com.company.U1M6Summative.viewmodel;
 
-import com.company.U1M6Summative.dao.CustomerDao;
-import com.company.U1M6Summative.dao.InvoiceDao;
-import com.company.U1M6Summative.dao.ItemDao;
 import com.company.U1M6Summative.model.Customer;
 import com.company.U1M6Summative.model.InvoiceItem;
 import com.company.U1M6Summative.model.Item;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -88,9 +83,8 @@ public class RentalViewModel {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(int itemId) {
         this.items = items;
-
     }
 
     @Override

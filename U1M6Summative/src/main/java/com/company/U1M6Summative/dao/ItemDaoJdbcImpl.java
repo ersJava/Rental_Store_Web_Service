@@ -32,6 +32,7 @@ public class ItemDaoJdbcImpl implements ItemDao {
     private static final String DELETE_ITEM_SQL =
             "delete from item where item_id = ?";
 
+
     @Autowired
     public ItemDaoJdbcImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -73,10 +74,6 @@ public class ItemDaoJdbcImpl implements ItemDao {
         jdbcTemplate.update(DELETE_ITEM_SQL, itemId);
     }
 
-    @Override
-    public List<Item> getItemByInvoiceItemId(int invoiceItemId) {
-        return null;
-    }
 
     private Item mapRowToItem(ResultSet rs, int rowNum) throws SQLException {
         Item item = new Item();

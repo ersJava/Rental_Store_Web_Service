@@ -243,7 +243,45 @@ public class InvoiceItemDaoTest {
         assertEquals(invoiceItemList.size(),1);
     }
 
+    @Test
+    public void getInvoiceItembyItemId(){
+        Customer customer = new Customer();
+        customer.setFirstName("Mario");
+        customer.setLastName("Plumber");
+        customer.setEmail("Mario@nintendo.com");
+        customer.setCompany("Super Mario Bros");
+        customer.setPhone("212-567-1234");
+        customer = customerDao.addCustomer(customer);
+
+        Invoice invoice = new Invoice();
+        invoice.setCustomerId(customer.getCustomerId());
+        invoice.setOrderDate(LocalDate.of(2019, 11, 22));
+        invoice.setPickupDate(LocalDate.of(2019, 11, 23));
+        invoice.setReturnDate(LocalDate.of(2019, 11, 26));
+        invoice.setLateFee(new BigDecimal("1.99"));
+        invoice = invoiceDao.addInvoice(invoice);
+
+        Item item = new Item();
+        item.setName("Titanic");
+        item.setDescription("An epic, action-packed romance set against the ill-fated maiden voyage of the R.M.S. Titanic.");
+        item.setDailyRate(new BigDecimal("2.99"));
+        item = itemDao.addItem(item);
+
+        InvoiceItem invoiceItem = new InvoiceItem();
+        invoiceItem.setInvoiceId(invoice.getInvoiceId());
+        invoiceItem.setItemId(item.getItemId());
+        invoiceItem.setQuantity(2);
+        invoiceItem.setUnitRate(new BigDecimal("10.01"));
+        invoiceItem.setDiscount(new BigDecimal("0.25"));
+        invoiceItemDao.addInvoiceItem(invoiceItem);
+
+        List<InvoiceItem> invoiceItemList = invoiceItemDao.getInvoiceItemByItemId(item.getItemId());
+        assertEquals(invoiceItemList.size(), 1);
+
+    }
 }
+
+
 
 //Customer
 //
