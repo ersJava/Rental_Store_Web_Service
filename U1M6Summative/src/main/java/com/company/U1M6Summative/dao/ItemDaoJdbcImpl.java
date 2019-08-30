@@ -73,6 +73,11 @@ public class ItemDaoJdbcImpl implements ItemDao {
         jdbcTemplate.update(DELETE_ITEM_SQL, itemId);
     }
 
+    @Override
+    public List<Item> getItemByInvoiceItemId(int invoiceItemId) {
+        return null;
+    }
+
     private Item mapRowToItem(ResultSet rs, int rowNum) throws SQLException {
         Item item = new Item();
         item.setItemId(rs.getInt("item_id"));

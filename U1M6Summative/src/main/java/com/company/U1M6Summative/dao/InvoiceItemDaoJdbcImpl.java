@@ -32,6 +32,9 @@ public class InvoiceItemDaoJdbcImpl implements InvoiceItemDao {
     private static final String UPDATE_INVOICE_ITEM_SQL =
             "update invoice_item set invoice_id = ?, item_id = ?, quantity = ?, unit_rate = ?, discount = ? where invoice_item_id = ?";
 
+    private static final String SELECT_INVOICE_ITEM_BY_INVOICE_SQL =
+            "select * from invoice_item where invoice_id = ?";
+
 
     @Autowired
     public InvoiceItemDaoJdbcImpl(JdbcTemplate jdbcTemplate) {
@@ -81,5 +84,15 @@ public class InvoiceItemDaoJdbcImpl implements InvoiceItemDao {
     @Override
     public void updateInvoiceItem(InvoiceItem invoiceItem) {
         jdbcTemplate.update(UPDATE_INVOICE_ITEM_SQL, invoiceItem.getInvoiceId(), invoiceItem.getItemId(), invoiceItem.getQuantity(), invoiceItem.getUnitRate(), invoiceItem.getDiscount(), invoiceItem.getInvoiceItemId());
+    }
+
+    @Override
+    public List<InvoiceItem> getInvoiceItemByInvoiceId(int invoiceId) {
+
+        return jdbcTemplate.query(
+                SELECT_INVOICE_ITEM_BY_INVOICE_SQL,
+                this::mapRowToInvoiceItem,
+                invoiceId);
+
     }
 }

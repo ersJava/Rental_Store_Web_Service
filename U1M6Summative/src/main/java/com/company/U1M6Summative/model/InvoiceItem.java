@@ -17,6 +17,7 @@ public class InvoiceItem {
     @NotEmpty(message = "Must not be empty")
     private BigDecimal discount;
 
+
     public int getInvoiceItemId() {
         return invoiceItemId;
     }
