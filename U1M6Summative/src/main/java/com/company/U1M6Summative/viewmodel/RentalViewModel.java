@@ -20,8 +20,8 @@ public class RentalViewModel {
     private LocalDate pickupDate;
     private LocalDate returnDate;
     private BigDecimal lateFee;
-    List<InvoiceItem> invoiceItems = new ArrayList<>();
-    List<Item> items = new ArrayList<>();
+    private List<InvoiceItem> invoiceItems = new ArrayList<>();
+    private Item item;
 
     public int getInvoiceId() {
         return invoiceId;
@@ -79,12 +79,12 @@ public class RentalViewModel {
         this.invoiceItems = invoiceItems;
     }
 
-    public List<Item> getItems() {
-        return items;
+    public Item getItem() {
+        return item;
     }
 
-    public void setItems(int itemId) {
-        this.items = items;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
     @Override
@@ -99,11 +99,11 @@ public class RentalViewModel {
                 getReturnDate().equals(that.getReturnDate()) &&
                 getLateFee().equals(that.getLateFee()) &&
                 getInvoiceItems().equals(that.getInvoiceItems()) &&
-                getItems().equals(that.getItems());
+                getItem().equals(that.getItem());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getInvoiceId(), getCustomer(), getOrderDate(), getPickupDate(), getReturnDate(), getLateFee(), getInvoiceItems(), getItems());
+        return Objects.hash(getInvoiceId(), getCustomer(), getOrderDate(), getPickupDate(), getReturnDate(), getLateFee(), getInvoiceItems(), getItem());
     }
 }
