@@ -35,6 +35,9 @@ public class InvoiceItemDaoJdbcImpl implements InvoiceItemDao {
     private static final String SELECT_INVOICE_ITEM_BY_INVOICE_SQL =
             "select * from invoice_item where invoice_id = ?";
 
+    private static final String SELECT_INVOICE_ITEMS_BY_ITEM_SQL =
+            "select * from invoice_item where item_id = ?";
+
 
     @Autowired
     public InvoiceItemDaoJdbcImpl(JdbcTemplate jdbcTemplate) {
@@ -93,6 +96,10 @@ public class InvoiceItemDaoJdbcImpl implements InvoiceItemDao {
                 SELECT_INVOICE_ITEM_BY_INVOICE_SQL,
                 this::mapRowToInvoiceItem,
                 invoiceId);
+    }
 
+    @Override
+    public List<InvoiceItem> getInvoiceItemByItemId(int itemId) {
+        return jdbcTemplate.query(SELECT_INVOICE_ITEMS_BY_ITEM_SQL, this::mapRowToInvoiceItem, itemId);
     }
 }
