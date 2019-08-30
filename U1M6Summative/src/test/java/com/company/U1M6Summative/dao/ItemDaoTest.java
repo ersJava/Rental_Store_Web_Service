@@ -1,7 +1,7 @@
 package com.company.U1M6Summative.dao;
 
 import com.company.U1M6Summative.model.Customer;
-import com.company.U1M6Summative.model.Invoice;
+
 import com.company.U1M6Summative.model.InvoiceItem;
 import com.company.U1M6Summative.model.Item;
 import org.junit.Before;
@@ -107,9 +107,6 @@ public class ItemDaoTest {
     }
 
 
-
-
-
     @Test
     public void getItemByInvoiceItemId() {
 
@@ -175,27 +172,9 @@ public class ItemDaoTest {
         List<Item> itemList = itemDao.getItemByInvoiceItemId(item.getItemId());
         assertEquals(itemList.size(), 2);
 
-        itemList= itemDao.getItemByInvoiceItemId(item2.getItemId());
-        assertEquals(itemList.size(),1);
+        itemList = itemDao.getItemByInvoiceItemId(item2.getItemId());
+        assertEquals(itemList.size(), 1);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
